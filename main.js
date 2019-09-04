@@ -1,9 +1,12 @@
 function chamarAPI(){
 	console.log("Chamando API");
 	const endpoint = "https://api.exchangeratesapi.io/latest";
-	$.get(endpoint, callback); 
-
+	var oParametros = {
+		base: $("#moeda_origem").val()
+	};
+	$.get(endpoint,oParametros ,callback); 
 }
+
 function callback(resultado){
 //	console.log(resultado);
 	
@@ -12,4 +15,4 @@ function callback(resultado){
 	
 	$("#valor_destino").text(fValor);
 	$("#moeda_destino_celula").text(sMoedaDestino);	
-}
+} 
